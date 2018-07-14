@@ -1,0 +1,9 @@
+{
+  "name": "cachetor",
+  "version": "0.0.1",
+  "description": "Local storage cache with expiration, fallback-handling, and more.",
+  "main": "index.js",
+  "repository": "https://github.com/cypherix93/cachetor",
+  "author": "cypherix93",
+  "license": "MIT"
+}
