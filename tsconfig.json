@@ -3,7 +3,7 @@
     "declaration": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "module": "es2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noImplicitAny": true,
@@ -21,6 +21,7 @@
       "es7"
     ],
     "rootDir": "./src",
+    "outDir": "./dist",
     "listEmittedFiles": true,
     "typeRoots": [
       "./node_modules/@types",
