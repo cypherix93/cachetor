@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "pretty": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "target": "ES5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "scripthost",
+      "es5",
+      "es6",
+      "es7"
+    ],
+    "rootDir": "./src",
+    "listEmittedFiles": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types/**"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "node_modules/@types/*",
+        "*"
+      ]
+    }
+  },
+  "exclude": [
+    "./node_modules",
+    "./dist"
+  ]
+}
