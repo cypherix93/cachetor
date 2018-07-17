@@ -18,11 +18,17 @@ export class CacheStore<TData> {
         let key = this.__key;
         let options = this.__options;
 
-        // if (this.keyModifierFunc) {
-        //     name = this.keyModifierFunc(name);
-        // }
+        let invalidationToken;
+        if (options.invalidationToken) {
+            invalidationToken = options.invalidationToken.call(null);
+        }
 
-        const cached = await StoreService.get<TData>(key);
+        const cacheRequestOptions = {
+            timeout: options.timeout,
+            invalidationToken
+        };
+
+        const cached = StoreService.get<TData>(key, cacheRequestOptions);
 
         if (cached) {
             return cached;
@@ -36,9 +42,16 @@ export class CacheStore<TData> {
         const fallbackData = await options.fallback.call(null);
 
         if (fallbackData) {
-            await StoreService.set(key, fallbackData, {timeout: options.timeout});
+            StoreService.set(key, fallbackData, cacheRequestOptions);
         }
 
         return fallbackData;
+    }
+
+    async set(value: TData) {
+        let key = this.__key;
+        let options = this.__options;
+
+        StoreService.set(key, value, {timeout: options.timeout});
     }
 }
